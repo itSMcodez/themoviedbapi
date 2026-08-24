@@ -33,9 +33,10 @@ public class TmdbDiscover {
      * @param builder A discover object containing the search criteria wanted
      * @return the movie results page.
      */
-    public MovieResultsPage getMovie(DiscoverMovieParamBuilder builder) throws TmdbException {
+    public MovieResultsPage getMovie(DiscoverMovieParamBuilder builder, int page) throws TmdbException {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_DISCOVER, TMDB_METHOD_MOVIE)
-            .addPathParams(builder);
+            .addPathParams(builder)
+            .addPage(page);
         return tmdbApiClient.get(apiUrl, MovieResultsPage.class);
     }
 
@@ -46,9 +47,10 @@ public class TmdbDiscover {
      * @param builder A discover object containing the search criteria wanted
      * @return the tv series results page.
      */
-    public TvSeriesResultsPage getTv(DiscoverTvParamBuilder builder) throws TmdbException {
+    public TvSeriesResultsPage getTv(DiscoverTvParamBuilder builder, int page) throws TmdbException {
         ApiUrl apiUrl = new ApiUrl(TMDB_METHOD_DISCOVER, TMDB_METHOD_TV)
-            .addPathParams(builder);
+            .addPathParams(builder)
+            .addPage(page);
         return tmdbApiClient.get(apiUrl, TvSeriesResultsPage.class);
     }
 }
