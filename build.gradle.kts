@@ -10,6 +10,7 @@ android {
 
     defaultConfig {
         minSdk = 26
+        consumerProguardFiles("src/main/keepRules/rules.keep")
     }
 
     compileOptions {
